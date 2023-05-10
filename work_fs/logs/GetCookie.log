@@ -1,0 +1,436 @@
+2023-04-08T20:48:27.618141+0300 ERROR An error has been caught in function '<module>', process 'MainProcess' (572), thread 'MainThread' (8592):
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3177, in connect
+    self._state.set_connection(self._connect())
+    │    │      │              │    └ <function PostgresqlDatabase._connect at 0x0000021B233A12D0>
+    │    │      │              └ <peewee.PostgresqlDatabase object at 0x0000021B231D63B0>
+    │    │      └ <function _ConnectionState.set_connection at 0x0000021B233941F0>
+    │    └ <peewee._ConnectionLocal object at 0x0000021B231AA500>
+    └ <peewee.PostgresqlDatabase object at 0x0000021B231D63B0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3916, in _connect
+    conn = psycopg2.connect(**params)
+           │        │         └ {'user': 'postgres', 'password': 'root123', 'host': 'localhost', 'port': 5432, 'dbname': 'database'}
+           │        └ <function connect at 0x0000021B2326B0A0>
+           └ <module 'psycopg2' from 'C:\\Users\\King\\PycharmProjects\\Reddit_comment_apruv\\venv\\lib\\site-packages\\psycopg2\\__init__...
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           │        │                       │                     └ {}
+           │        │                       └ None
+           │        └ 'user=postgres password=root123 host=localhost port=5432 dbname=database'
+           └ <built-in function _connect>
+
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+> File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\AUTH_cookie.py", line 33, in <module>
+    main()
+    └ <function main at 0x0000021B229D0820>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\AUTH_cookie.py", line 14, in main
+    check_new_acc()
+    └ <function check_new_acc at 0x0000021B231C8AF0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\auth_reddit\get_cookies.py", line 34, in check_new_acc
+    create_db()
+    └ <function create_db at 0x0000021B233C8F70>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\create.py", line 5, in create_db
+    with db:
+         └ <peewee.PostgresqlDatabase object at 0x0000021B231D63B0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3145, in __enter__
+    self.connect()
+    │    └ <function Database.connect at 0x0000021B233948B0>
+    └ <peewee.PostgresqlDatabase object at 0x0000021B231D63B0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3176, in connect
+    with __exception_wrapper__:
+         └ <peewee.ExceptionWrapper object at 0x0000021B233887F0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3010, in __exit__
+    reraise(new_type, new_type(exc_value, *exc_args), traceback)
+    │       │         │        │           │          └ <traceback object at 0x0000021B244D0F80>
+    │       │         │        │           └ ('connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)\n\tIs the server running...
+    │       │         │        └ OperationalError('connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)\n\tIs th...
+    │       │         └ <class 'peewee.OperationalError'>
+    │       └ <class 'peewee.OperationalError'>
+    └ <function reraise at 0x0000021B23359B40>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 192, in reraise
+    raise value.with_traceback(tb)
+          │     │              └ <traceback object at 0x0000021B244D0F80>
+          │     └ <method 'with_traceback' of 'BaseException' objects>
+          └ OperationalError('connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)\n\tIs th...
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3177, in connect
+    self._state.set_connection(self._connect())
+    │    │      │              │    └ <function PostgresqlDatabase._connect at 0x0000021B233A12D0>
+    │    │      │              └ <peewee.PostgresqlDatabase object at 0x0000021B231D63B0>
+    │    │      └ <function _ConnectionState.set_connection at 0x0000021B233941F0>
+    │    └ <peewee._ConnectionLocal object at 0x0000021B231AA500>
+    └ <peewee.PostgresqlDatabase object at 0x0000021B231D63B0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3916, in _connect
+    conn = psycopg2.connect(**params)
+           │        │         └ {'user': 'postgres', 'password': 'root123', 'host': 'localhost', 'port': 5432, 'dbname': 'database'}
+           │        └ <function connect at 0x0000021B2326B0A0>
+           └ <module 'psycopg2' from 'C:\\Users\\King\\PycharmProjects\\Reddit_comment_apruv\\venv\\lib\\site-packages\\psycopg2\\__init__...
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           │        │                       │                     └ {}
+           │        │                       └ None
+           │        └ 'user=postgres password=root123 host=localhost port=5432 dbname=database'
+           └ <built-in function _connect>
+
+peewee.OperationalError: connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+2023-04-22T19:19:44.409247+0300 ERROR An error has been caught in function '<module>', process 'MainProcess' (8448), thread 'MainThread' (10980):
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3177, in connect
+    self._state.set_connection(self._connect())
+    │    │      │              │    └ <function PostgresqlDatabase._connect at 0x000001E296A95240>
+    │    │      │              └ <playhouse.cockroachdb.CockroachDatabase object at 0x000001E29642BF40>
+    │    │      └ <function _ConnectionState.set_connection at 0x000001E296A90160>
+    │    └ <peewee._ConnectionLocal object at 0x000001E296DED360>
+    └ <playhouse.cockroachdb.CockroachDatabase object at 0x000001E29642BF40>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3916, in _connect
+    conn = psycopg2.connect(**params)
+           │        │         └ {'user': 'root', 'port': 26257, 'dbname': 'storage_bots'}
+           │        └ <function connect at 0x000001E2963BCE50>
+           └ <module 'psycopg2' from 'C:\\Users\\King\\PycharmProjects\\Reddit_comment_apruv\\venv\\lib\\site-packages\\psycopg2\\__init__...
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           │        │                       │                     └ {}
+           │        │                       └ None
+           │        └ 'user=root port=26257 dbname=storage_bots'
+           └ <built-in function _connect>
+
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 26257 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 26257 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+> File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\run_AUTH_cookie.py", line 33, in <module>
+    main()
+    └ <function main at 0x000001E2968C01F0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\run_AUTH_cookie.py", line 14, in main
+    check_new_acc()
+    └ <function check_new_acc at 0x000001E296E623B0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\auth_reddit\get_cookies.py", line 33, in check_new_acc
+    create_db()
+    └ <function create_db at 0x000001E296E61CF0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\create.py", line 5, in create_db
+    with db:
+         └ <playhouse.cockroachdb.CockroachDatabase object at 0x000001E29642BF40>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3145, in __enter__
+    self.connect()
+    │    └ <function Database.connect at 0x000001E296A90820>
+    └ <playhouse.cockroachdb.CockroachDatabase object at 0x000001E29642BF40>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3176, in connect
+    with __exception_wrapper__:
+         └ <peewee.ExceptionWrapper object at 0x000001E296A84A60>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3010, in __exit__
+    reraise(new_type, new_type(exc_value, *exc_args), traceback)
+    │       │         │        │           │          └ <traceback object at 0x000001E29809C280>
+    │       │         │        │           └ ('connection to server at "localhost" (::1), port 26257 failed: Connection refused (0x0000274D/10061)\n\tIs the server runnin...
+    │       │         │        └ OperationalError('connection to server at "localhost" (::1), port 26257 failed: Connection refused (0x0000274D/10061)\n\tIs t...
+    │       │         └ <class 'peewee.OperationalError'>
+    │       └ <class 'peewee.OperationalError'>
+    └ <function reraise at 0x000001E296A55AB0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 192, in reraise
+    raise value.with_traceback(tb)
+          │     │              └ <traceback object at 0x000001E29809C280>
+          │     └ <method 'with_traceback' of 'BaseException' objects>
+          └ OperationalError('connection to server at "localhost" (::1), port 26257 failed: Connection refused (0x0000274D/10061)\n\tIs t...
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3177, in connect
+    self._state.set_connection(self._connect())
+    │    │      │              │    └ <function PostgresqlDatabase._connect at 0x000001E296A95240>
+    │    │      │              └ <playhouse.cockroachdb.CockroachDatabase object at 0x000001E29642BF40>
+    │    │      └ <function _ConnectionState.set_connection at 0x000001E296A90160>
+    │    └ <peewee._ConnectionLocal object at 0x000001E296DED360>
+    └ <playhouse.cockroachdb.CockroachDatabase object at 0x000001E29642BF40>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3916, in _connect
+    conn = psycopg2.connect(**params)
+           │        │         └ {'user': 'root', 'port': 26257, 'dbname': 'storage_bots'}
+           │        └ <function connect at 0x000001E2963BCE50>
+           └ <module 'psycopg2' from 'C:\\Users\\King\\PycharmProjects\\Reddit_comment_apruv\\venv\\lib\\site-packages\\psycopg2\\__init__...
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           │        │                       │                     └ {}
+           │        │                       └ None
+           │        └ 'user=root port=26257 dbname=storage_bots'
+           └ <built-in function _connect>
+
+peewee.OperationalError: connection to server at "localhost" (::1), port 26257 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 26257 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+2023-04-22T19:33:55.219442+0300 ERROR An error has been caught in function '<module>', process 'MainProcess' (13576), thread 'MainThread' (1232):
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3177, in connect
+    self._state.set_connection(self._connect())
+    │    │      │              │    └ <function PostgresqlDatabase._connect at 0x00000160DBF85240>
+    │    │      │              └ <playhouse.cockroachdb.CockroachDatabase object at 0x00000160DB91BF40>
+    │    │      └ <function _ConnectionState.set_connection at 0x00000160DBF80160>
+    │    └ <peewee._ConnectionLocal object at 0x00000160DC315960>
+    └ <playhouse.cockroachdb.CockroachDatabase object at 0x00000160DB91BF40>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3916, in _connect
+    conn = psycopg2.connect(**params)
+           │        │         └ {'username': 'doadmin', 'password': 'AVNS_XCxtxUH7rZz8txAxKYO', 'host': 'bots-do-user-11731497-0.b.db.ondigitalocean.com', 'p...
+           │        └ <function connect at 0x00000160DB8ACE50>
+           └ <module 'psycopg2' from 'C:\\Users\\King\\PycharmProjects\\Reddit_comment_apruv\\venv\\lib\\site-packages\\psycopg2\\__init__...
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\psycopg2\__init__.py", line 121, in connect
+    dsn = _ext.make_dsn(dsn, **kwargs)
+          │    │        │      └ {'username': 'doadmin', 'password': 'AVNS_XCxtxUH7rZz8txAxKYO', 'host': 'bots-do-user-11731497-0.b.db.ondigitalocean.com', 'p...
+          │    │        └ None
+          │    └ <function make_dsn at 0x00000160DB9B32E0>
+          └ <module 'psycopg2.extensions' from 'C:\\Users\\King\\PycharmProjects\\Reddit_comment_apruv\\venv\\lib\\site-packages\\psycopg...
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\psycopg2\extensions.py", line 167, in make_dsn
+    parse_dsn(dsn)
+    │         └ 'username=doadmin password=AVNS_XCxtxUH7rZz8txAxKYO host=bots-do-user-11731497-0.b.db.ondigitalocean.com port=25061 sslmode=r...
+    └ <built-in function parse_dsn>
+
+psycopg2.ProgrammingError: invalid dsn: invalid connection option "username"
+
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+> File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\run_AUTH_cookie.py", line 33, in <module>
+    main()
+    └ <function main at 0x00000160DB9B01F0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\run_AUTH_cookie.py", line 14, in main
+    check_new_acc()
+    └ <function check_new_acc at 0x00000160DC3523B0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\auth_reddit\get_cookies.py", line 33, in check_new_acc
+    create_db()
+    └ <function create_db at 0x00000160DC351CF0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\create.py", line 5, in create_db
+    with db:
+         └ <playhouse.cockroachdb.CockroachDatabase object at 0x00000160DB91BF40>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3145, in __enter__
+    self.connect()
+    │    └ <function Database.connect at 0x00000160DBF80820>
+    └ <playhouse.cockroachdb.CockroachDatabase object at 0x00000160DB91BF40>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3176, in connect
+    with __exception_wrapper__:
+         └ <peewee.ExceptionWrapper object at 0x00000160DBF74A30>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3010, in __exit__
+    reraise(new_type, new_type(exc_value, *exc_args), traceback)
+    │       │         │        │           │          └ <traceback object at 0x00000160DD7AB140>
+    │       │         │        │           └ ('invalid dsn: invalid connection option "username"\n',)
+    │       │         │        └ ProgrammingError('invalid dsn: invalid connection option "username"\n')
+    │       │         └ <class 'peewee.ProgrammingError'>
+    │       └ <class 'peewee.ProgrammingError'>
+    └ <function reraise at 0x00000160DBF45AB0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 192, in reraise
+    raise value.with_traceback(tb)
+          │     │              └ <traceback object at 0x00000160DD7AB140>
+          │     └ <method 'with_traceback' of 'BaseException' objects>
+          └ ProgrammingError('invalid dsn: invalid connection option "username"\n')
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3177, in connect
+    self._state.set_connection(self._connect())
+    │    │      │              │    └ <function PostgresqlDatabase._connect at 0x00000160DBF85240>
+    │    │      │              └ <playhouse.cockroachdb.CockroachDatabase object at 0x00000160DB91BF40>
+    │    │      └ <function _ConnectionState.set_connection at 0x00000160DBF80160>
+    │    └ <peewee._ConnectionLocal object at 0x00000160DC315960>
+    └ <playhouse.cockroachdb.CockroachDatabase object at 0x00000160DB91BF40>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3916, in _connect
+    conn = psycopg2.connect(**params)
+           │        │         └ {'username': 'doadmin', 'password': 'AVNS_XCxtxUH7rZz8txAxKYO', 'host': 'bots-do-user-11731497-0.b.db.ondigitalocean.com', 'p...
+           │        └ <function connect at 0x00000160DB8ACE50>
+           └ <module 'psycopg2' from 'C:\\Users\\King\\PycharmProjects\\Reddit_comment_apruv\\venv\\lib\\site-packages\\psycopg2\\__init__...
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\psycopg2\__init__.py", line 121, in connect
+    dsn = _ext.make_dsn(dsn, **kwargs)
+          │    │        │      └ {'username': 'doadmin', 'password': 'AVNS_XCxtxUH7rZz8txAxKYO', 'host': 'bots-do-user-11731497-0.b.db.ondigitalocean.com', 'p...
+          │    │        └ None
+          │    └ <function make_dsn at 0x00000160DB9B32E0>
+          └ <module 'psycopg2.extensions' from 'C:\\Users\\King\\PycharmProjects\\Reddit_comment_apruv\\venv\\lib\\site-packages\\psycopg...
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\psycopg2\extensions.py", line 167, in make_dsn
+    parse_dsn(dsn)
+    │         └ 'username=doadmin password=AVNS_XCxtxUH7rZz8txAxKYO host=bots-do-user-11731497-0.b.db.ondigitalocean.com port=25061 sslmode=r...
+    └ <built-in function parse_dsn>
+
+peewee.ProgrammingError: invalid dsn: invalid connection option "username"
+
+2023-04-22T19:40:00.406735+0300 ERROR An error has been caught in function '<module>', process 'MainProcess' (11556), thread 'MainThread' (5844):
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3177, in connect
+    self._state.set_connection(self._connect())
+    │    │      │              │    └ <function PostgresqlDatabase._connect at 0x00000176CDC75240>
+    │    │      │              └ <playhouse.cockroachdb.CockroachDatabase object at 0x00000176CDFBA9E0>
+    │    │      └ <function _ConnectionState.set_connection at 0x00000176CDC70160>
+    │    └ <peewee._ConnectionLocal object at 0x00000176CDFD1300>
+    └ <playhouse.cockroachdb.CockroachDatabase object at 0x00000176CDFBA9E0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3916, in _connect
+    conn = psycopg2.connect(**params)
+           │        │         └ {'user': 'root', 'port': 26257, 'dbname': '\n    postgresql://doadmin:AVNS_XCxtxUH7rZz8txAxKYO@bots-do-user-11731497-0.b.db.o...
+           │        └ <function connect at 0x00000176CD59CE50>
+           └ <module 'psycopg2' from 'C:\\Users\\King\\PycharmProjects\\Reddit_comment_apruv\\venv\\lib\\site-packages\\psycopg2\\__init__...
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           │        │                       │                     └ {}
+           │        │                       └ None
+           │        └ "user=root port=26257 dbname='\n    postgresql://doadmin:AVNS_XCxtxUH7rZz8txAxKYO@bots-do-user-11731497-0.b.db.ondigitalocean...
+           └ <built-in function _connect>
+
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 26257 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 26257 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+> File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\run_AUTH_cookie.py", line 33, in <module>
+    main()
+    └ <function main at 0x00000176CDAA01F0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\run_AUTH_cookie.py", line 14, in main
+    check_new_acc()
+    └ <function check_new_acc at 0x00000176CE0423B0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\auth_reddit\get_cookies.py", line 33, in check_new_acc
+    create_db()
+    └ <function create_db at 0x00000176CE041CF0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\create.py", line 5, in create_db
+    with db:
+         └ <playhouse.cockroachdb.CockroachDatabase object at 0x00000176CDFBA9E0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3145, in __enter__
+    self.connect()
+    │    └ <function Database.connect at 0x00000176CDC70820>
+    └ <playhouse.cockroachdb.CockroachDatabase object at 0x00000176CDFBA9E0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3176, in connect
+    with __exception_wrapper__:
+         └ <peewee.ExceptionWrapper object at 0x00000176CDC64A90>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3010, in __exit__
+    reraise(new_type, new_type(exc_value, *exc_args), traceback)
+    │       │         │        │           │          └ <traceback object at 0x00000176CF298E00>
+    │       │         │        │           └ ('connection to server at "localhost" (::1), port 26257 failed: Connection refused (0x0000274D/10061)\n\tIs the server runnin...
+    │       │         │        └ OperationalError('connection to server at "localhost" (::1), port 26257 failed: Connection refused (0x0000274D/10061)\n\tIs t...
+    │       │         └ <class 'peewee.OperationalError'>
+    │       └ <class 'peewee.OperationalError'>
+    └ <function reraise at 0x00000176CDC35AB0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 192, in reraise
+    raise value.with_traceback(tb)
+          │     │              └ <traceback object at 0x00000176CF298E00>
+          │     └ <method 'with_traceback' of 'BaseException' objects>
+          └ OperationalError('connection to server at "localhost" (::1), port 26257 failed: Connection refused (0x0000274D/10061)\n\tIs t...
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3177, in connect
+    self._state.set_connection(self._connect())
+    │    │      │              │    └ <function PostgresqlDatabase._connect at 0x00000176CDC75240>
+    │    │      │              └ <playhouse.cockroachdb.CockroachDatabase object at 0x00000176CDFBA9E0>
+    │    │      └ <function _ConnectionState.set_connection at 0x00000176CDC70160>
+    │    └ <peewee._ConnectionLocal object at 0x00000176CDFD1300>
+    └ <playhouse.cockroachdb.CockroachDatabase object at 0x00000176CDFBA9E0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 3916, in _connect
+    conn = psycopg2.connect(**params)
+           │        │         └ {'user': 'root', 'port': 26257, 'dbname': '\n    postgresql://doadmin:AVNS_XCxtxUH7rZz8txAxKYO@bots-do-user-11731497-0.b.db.o...
+           │        └ <function connect at 0x00000176CD59CE50>
+           └ <module 'psycopg2' from 'C:\\Users\\King\\PycharmProjects\\Reddit_comment_apruv\\venv\\lib\\site-packages\\psycopg2\\__init__...
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           │        │                       │                     └ {}
+           │        │                       └ None
+           │        └ "user=root port=26257 dbname='\n    postgresql://doadmin:AVNS_XCxtxUH7rZz8txAxKYO@bots-do-user-11731497-0.b.db.ondigitalocean...
+           └ <built-in function _connect>
+
+peewee.OperationalError: connection to server at "localhost" (::1), port 26257 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 26257 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+2023-04-22T19:47:20.739950+0300 ERROR An error has been caught in function '<module>', process 'MainProcess' (14068), thread 'MainThread' (13968):
+Traceback (most recent call last):
+
+> File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\run_AUTH_cookie.py", line 33, in <module>
+    main()
+    └ <function main at 0x000001D7274F01F0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\run_AUTH_cookie.py", line 14, in main
+    check_new_acc()
+    └ <function check_new_acc at 0x000001D727A923B0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\auth_reddit\get_cookies.py", line 35, in check_new_acc
+    for account in get_account_file():
+                   └ <function get_account_file at 0x000001D727A90E50>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\handl_info\account.py", line 9, in get_account_file
+    while list_accounts := get_list_file(path_account_file):
+                           │             └ WindowsPath('C:/Users/King/PycharmProjects/Reddit_comment_apruv/work_fs/accounts.txt')
+                           └ <function get_list_file at 0x000001D727A87640>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\work_fs\read_file.py", line 28, in get_list_file
+    raise Exception(f'Not found {path_to_file}')
+
+Exception: Not found C:\Users\King\PycharmProjects\Reddit_comment_apruv\work_fs\accounts.txt

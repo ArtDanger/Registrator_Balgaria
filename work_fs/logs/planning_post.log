@@ -1,0 +1,20 @@
+2023-04-11T15:11:35.504041+0300 ERROR An error has been caught in function '<module>', process 'MainProcess' (6800), thread 'MainThread' (11428):
+Traceback (most recent call last):
+
+> File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\run_SPAMPOSTER.py", line 28, in <module>
+    main()
+    └ <function main at 0x000001F7A4D2E8C0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\run_SPAMPOSTER.py", line 12, in main
+    account: dict[str: str] = list(get_account_file())[0]
+                                   └ <function get_account_file at 0x000001F7A78096C0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\handl_info\account.py", line 9, in get_account_file
+    while list_accounts := get_list_file(path_account_file):
+                           │             └ WindowsPath('C:/Users/King/PycharmProjects/Reddit_comment_apruv/work_fs/accounts.txt')
+                           └ <function get_list_file at 0x000001F7A70BAB00>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\work_fs\read_file.py", line 28, in get_list_file
+    raise Exception(f'Not found {path_to_file}')
+
+Exception: Not found C:\Users\King\PycharmProjects\Reddit_comment_apruv\work_fs\accounts.txt

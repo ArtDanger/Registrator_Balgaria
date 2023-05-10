@@ -1,0 +1,1731 @@
+2023-04-23T20:39:54.716031+0300 WARNING Підбираю інформацію для "https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/"
+2023-04-23T20:39:55.189211+0300 ERROR An error has been caught in function '_process_worker', process 'SpawnProcess-1' (5676), thread 'MainThread' (7056):
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 7077, in get
+    return clone.execute(database)[0]
+           │     │       └ None
+           │     └ <function BaseQuery.execute at 0x00000256AA84B0A0>
+           └ <peewee.ModelSelect object at 0x00000256AB077190>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 4441, in __getitem__
+    return self.row_cache[item]
+           │    │         └ 0
+           │    └ []
+           └ <peewee.ModelObjectCursorWrapper object at 0x00000256AB077250>
+
+IndexError: list index out of range
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 6662, in get_or_create
+    return query.get(), False
+           │     └ <function BaseModelSelect.get at 0x00000256AA887910>
+           └ <peewee.ModelSelect object at 0x00000256AB0772B0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 7080, in get
+    raise self.model.DoesNotExist('%s instance matching query does '
+          │    │     └ <class 'database.vote_tg_bot.models.RedditLinkDoesNotExist'>
+          │    └ <Model: RedditLink>
+          └ <peewee.ModelSelect object at 0x00000256AB0772B0>
+
+database.vote_tg_bot.models.RedditLinkDoesNotExist: <Model: RedditLink> instance matching query does not exist:
+SQL: SELECT "t1"."id", "t1"."link" FROM "reddit links" AS "t1" WHERE ("t1"."link" = %s) LIMIT %s OFFSET %s
+Params: ['https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/', 1, 0]
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 20, in body_loop
+    work_link_account_obj, dict_for_browser = collection_info(reddit_link=reddit_link)
+    │                                         │                           └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/'
+    │                                         └ <function collection_info at 0x00000256AB082710>
+    └ <Model: WorkAccountWithLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 32, in collection_info
+    link_id, account_obj, work_link_account_obj = pick_up_account_to_link(reddit_link)
+                                                  │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/'
+                                                  └ <function pick_up_account_to_link at 0x00000256AB0827A0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 11, in pick_up_account_to_link
+    link_id = db_get_link_id(link_from_file)
+              │              └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/'
+              └ <function db_get_link_id at 0x00000256AA9F97E0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\get.py", line 9, in db_get_link_id
+    link_obj = RedditLink.get_or_create(link=link_from_file)[0]
+               │          │                  └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/'
+               │          └ <classmethod(<function Model.get_or_create at 0x00000256AA885B40>)>
+               └ <Model: RedditLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 6667, in get_or_create
+    with cls._meta.database.atomic():
+         │   │     │        └ <function CockroachDatabase.atomic at 0x00000256AA8BA200>
+         │   │     └ <playhouse.cockroachdb.CockroachDatabase object at 0x00000256AA8991E0>
+         │   └ <peewee.Metadata object at 0x00000256AAA05A50>
+         └ <Model: RedditLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\playhouse\cockroachdb.py", line 188, in __enter__
+    raise NotImplementedError(TXN_ERR_MSG)
+                              └ 'CockroachDB does not support nested transactions. You may alternatively use the @transaction context-manager/decorator, whic...
+
+NotImplementedError: CockroachDB does not support nested transactions. You may alternatively use the @transaction context-manager/decorator, which only wraps the outer-most block in transactional logic. To run a transaction with automatic retries, use the run_transaction() helper.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 340
+               │     └ 3
+               └ <function _main at 0x00000256A68D5630>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 129, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 340
+           │    └ <function BaseProcess._bootstrap at 0x00000256A67E36D0>
+           └ <SpawnProcess name='SpawnProcess-1' parent=1240 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x00000256A67E2D40>
+    └ <SpawnProcess name='SpawnProcess-1' parent=1240 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=1240 started>
+    │    │        │    └ (<concurrent.futures.process._SafeQueue object at 0x00000256AAA226B0>, <multiprocessing.queues.SimpleQueue object at 0x000002...
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=1240 started>
+    │    └ <function _process_worker at 0x00000256AAA785E0>
+    └ <SpawnProcess name='SpawnProcess-1' parent=1240 started>
+
+> File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        │         │   │         │       │         └ {}
+        │         │   │         │       └ <concurrent.futures.process._CallItem object at 0x00000256A644B700>
+        │         │   │         └ ('https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/', 2)
+        │         │   └ <concurrent.futures.process._CallItem object at 0x00000256A644B700>
+        │         └ <function start_reddit_work at 0x00000256AB082830>
+        └ <concurrent.futures.process._CallItem object at 0x00000256A644B700>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 66, in start_reddit_work
+    condition, msg = body_loop(reddit_link, sub, id_work_link_account_obj, msg)
+                     │         │            │    │                         └ 'Your request has been processed!💫 OnlyCurvyGW'
+                     │         │            │    └ <Model: WorkAccountWithLink>
+                     │         │            └ 'OnlyCurvyGW'
+                     │         └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/'
+                     └ <function body_loop at 0x00000256AAA793F0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 37, in body_loop
+    work_link_account_obj.delete_instance()
+    │                     └ <function Model.delete_instance at 0x00000256AA886170>
+    └ <Model: WorkAccountWithLink>
+
+TypeError: Model.delete_instance() missing 1 required positional argument: 'self'
+2023-04-23T20:53:02.658439+0300 WARNING Підбираю інформацію для "https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/"
+2023-04-23T20:53:03.190577+0300 ERROR An error has been caught in function '_process_worker', process 'SpawnProcess-1' (3056), thread 'MainThread' (4656):
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 7077, in get
+    return clone.execute(database)[0]
+           │     │       └ None
+           │     └ <function BaseQuery.execute at 0x0000019609B7B0A0>
+           └ <peewee.ModelSelect object at 0x000001960A3A72B0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 4441, in __getitem__
+    return self.row_cache[item]
+           │    │         └ 0
+           │    └ []
+           └ <peewee.ModelObjectCursorWrapper object at 0x000001960A3A74C0>
+
+IndexError: list index out of range
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 6662, in get_or_create
+    return query.get(), False
+           │     └ <function BaseModelSelect.get at 0x0000019609BB7910>
+           └ <peewee.ModelSelect object at 0x000001960A3A72E0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 7080, in get
+    raise self.model.DoesNotExist('%s instance matching query does '
+          │    │     └ <class 'database.vote_tg_bot.models.RedditLinkDoesNotExist'>
+          │    └ <Model: RedditLink>
+          └ <peewee.ModelSelect object at 0x000001960A3A72E0>
+
+database.vote_tg_bot.models.RedditLinkDoesNotExist: <Model: RedditLink> instance matching query does not exist:
+SQL: SELECT "t1"."id", "t1"."link" FROM "reddit links" AS "t1" WHERE ("t1"."link" = %s) LIMIT %s OFFSET %s
+Params: ['https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/', 1, 0]
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 20, in body_loop
+    work_link_account_obj, dict_for_browser = collection_info(reddit_link=reddit_link)
+    │                                         │                           └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/'
+    │                                         └ <function collection_info at 0x000001960A3B2710>
+    └ <Model: WorkAccountWithLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 32, in collection_info
+    link_id, account_obj, work_link_account_obj = pick_up_account_to_link(reddit_link)
+                                                  │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/'
+                                                  └ <function pick_up_account_to_link at 0x000001960A3B27A0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 11, in pick_up_account_to_link
+    link_id = db_get_link_id(link_from_file)
+              │              └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/'
+              └ <function db_get_link_id at 0x0000019609D297E0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\get.py", line 9, in db_get_link_id
+    link_obj = RedditLink.get_or_create(link=link_from_file)[0]
+               │          │                  └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/'
+               │          └ <classmethod(<function Model.get_or_create at 0x0000019609BB5B40>)>
+               └ <Model: RedditLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 6667, in get_or_create
+    with cls._meta.database.atomic():
+         │   │     │        └ <function CockroachDatabase.atomic at 0x0000019609BEA200>
+         │   │     └ <playhouse.cockroachdb.CockroachDatabase object at 0x0000019609BC9270>
+         │   └ <peewee.Metadata object at 0x0000019609D35A80>
+         └ <Model: RedditLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\playhouse\cockroachdb.py", line 188, in __enter__
+    raise NotImplementedError(TXN_ERR_MSG)
+                              └ 'CockroachDB does not support nested transactions. You may alternatively use the @transaction context-manager/decorator, whic...
+
+NotImplementedError: CockroachDB does not support nested transactions. You may alternatively use the @transaction context-manager/decorator, which only wraps the outer-most block in transactional logic. To run a transaction with automatic retries, use the run_transaction() helper.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 324
+               │     └ 3
+               └ <function _main at 0x0000019605B25630>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 129, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 324
+           │    └ <function BaseProcess._bootstrap at 0x0000019605A336D0>
+           └ <SpawnProcess name='SpawnProcess-1' parent=10072 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x0000019605A32D40>
+    └ <SpawnProcess name='SpawnProcess-1' parent=10072 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=10072 started>
+    │    │        │    └ (<concurrent.futures.process._SafeQueue object at 0x0000019609D526E0>, <multiprocessing.queues.SimpleQueue object at 0x000001...
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=10072 started>
+    │    └ <function _process_worker at 0x0000019609DA85E0>
+    └ <SpawnProcess name='SpawnProcess-1' parent=10072 started>
+
+> File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        │         │   │         │       │         └ {}
+        │         │   │         │       └ <concurrent.futures.process._CallItem object at 0x000001960569B700>
+        │         │   │         └ ('https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/', 2)
+        │         │   └ <concurrent.futures.process._CallItem object at 0x000001960569B700>
+        │         └ <function start_reddit_work at 0x000001960A3B2830>
+        └ <concurrent.futures.process._CallItem object at 0x000001960569B700>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 66, in start_reddit_work
+    condition, msg = body_loop(reddit_link, sub, id_work_link_account_obj, msg)
+                     │         │            │    │                         └ 'Your request has been processed!💫 OnlyCurvyGW'
+                     │         │            │    └ <Model: WorkAccountWithLink>
+                     │         │            └ 'OnlyCurvyGW'
+                     │         └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/'
+                     └ <function body_loop at 0x0000019609DA93F0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 37, in body_loop
+    work_link_account_obj.delete_instance()
+    │                     └ <function Model.delete_instance at 0x0000019609BB6170>
+    └ <Model: WorkAccountWithLink>
+
+TypeError: Model.delete_instance() missing 1 required positional argument: 'self'
+2023-04-23T21:01:51.474940+0300 WARNING Підбираю інформацію для "https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/"
+2023-04-23T21:01:52.083442+0300 ERROR An error has been caught in function '_process_worker', process 'SpawnProcess-1' (7088), thread 'MainThread' (5800):
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 7077, in get
+    return clone.execute(database)[0]
+           │     │       └ None
+           │     └ <function BaseQuery.execute at 0x00000190FC46B0A0>
+           └ <peewee.ModelSelect object at 0x00000190FCC97250>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 4441, in __getitem__
+    return self.row_cache[item]
+           │    │         └ 0
+           │    └ []
+           └ <peewee.ModelObjectCursorWrapper object at 0x00000190FCC97430>
+
+IndexError: list index out of range
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 6662, in get_or_create
+    return query.get(), False
+           │     └ <function BaseModelSelect.get at 0x00000190FC4A7910>
+           └ <peewee.ModelSelect object at 0x00000190FCC971C0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 7080, in get
+    raise self.model.DoesNotExist('%s instance matching query does '
+          │    │     └ <class 'database.vote_tg_bot.models.RedditLinkDoesNotExist'>
+          │    └ <Model: RedditLink>
+          └ <peewee.ModelSelect object at 0x00000190FCC971C0>
+
+database.vote_tg_bot.models.RedditLinkDoesNotExist: <Model: RedditLink> instance matching query does not exist:
+SQL: SELECT "t1"."id", "t1"."link" FROM "reddit links" AS "t1" WHERE ("t1"."link" = %s) LIMIT %s OFFSET %s
+Params: ['https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/', 1, 0]
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 20, in body_loop
+    work_link_account_obj, dict_for_browser = collection_info(reddit_link=reddit_link)
+    │                                         │                           └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/'
+    │                                         └ <function collection_info at 0x00000190FCCA27A0>
+    └ <Model: WorkAccountWithLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 32, in collection_info
+    link_id, account_obj, work_link_account_obj = pick_up_account_to_link(reddit_link)
+                                                  │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/'
+                                                  └ <function pick_up_account_to_link at 0x00000190FCCA2830>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 11, in pick_up_account_to_link
+    link_id = db_get_link_id(link_from_file)
+              │              └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/'
+              └ <function db_get_link_id at 0x00000190FC6197E0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 418, in inner
+    return fn(*args, **kwargs)
+           │   │       └ {}
+           │   └ ('https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/',)
+           └ <function db_get_link_id at 0x00000190FC619870>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\get.py", line 9, in db_get_link_id
+    link_obj = RedditLink.get_or_create(link=link_from_file)[0]
+               │          │                  └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/'
+               │          └ <classmethod(<function Model.get_or_create at 0x00000190FC4A5B40>)>
+               └ <Model: RedditLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 6667, in get_or_create
+    with cls._meta.database.atomic():
+         │   │     │        └ <function CockroachDatabase.atomic at 0x00000190FC4DA200>
+         │   │     └ <playhouse.cockroachdb.CockroachDatabase object at 0x00000190FC4B91B0>
+         │   └ <peewee.Metadata object at 0x00000190FC6259C0>
+         └ <Model: RedditLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\playhouse\cockroachdb.py", line 188, in __enter__
+    raise NotImplementedError(TXN_ERR_MSG)
+                              └ 'CockroachDB does not support nested transactions. You may alternatively use the @transaction context-manager/decorator, whic...
+
+NotImplementedError: CockroachDB does not support nested transactions. You may alternatively use the @transaction context-manager/decorator, which only wraps the outer-most block in transactional logic. To run a transaction with automatic retries, use the run_transaction() helper.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 316
+               │     └ 3
+               └ <function _main at 0x00000190F8415630>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 129, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 316
+           │    └ <function BaseProcess._bootstrap at 0x00000190F83236D0>
+           └ <SpawnProcess name='SpawnProcess-1' parent=12276 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x00000190F8322D40>
+    └ <SpawnProcess name='SpawnProcess-1' parent=12276 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=12276 started>
+    │    │        │    └ (<concurrent.futures.process._SafeQueue object at 0x00000190FC6426E0>, <multiprocessing.queues.SimpleQueue object at 0x000001...
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=12276 started>
+    │    └ <function _process_worker at 0x00000190FC69C670>
+    └ <SpawnProcess name='SpawnProcess-1' parent=12276 started>
+
+> File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        │         │   │         │       │         └ {}
+        │         │   │         │       └ <concurrent.futures.process._CallItem object at 0x00000190F7F8B700>
+        │         │   │         └ ('https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/', 2)
+        │         │   └ <concurrent.futures.process._CallItem object at 0x00000190F7F8B700>
+        │         └ <function start_reddit_work at 0x00000190FCCA28C0>
+        └ <concurrent.futures.process._CallItem object at 0x00000190F7F8B700>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 66, in start_reddit_work
+    condition, msg = body_loop(reddit_link, sub, id_work_link_account_obj, msg)
+                     │         │            │    │                         └ 'Your request has been processed!💫 OnlyCurvyGW'
+                     │         │            │    └ <Model: WorkAccountWithLink>
+                     │         │            └ 'OnlyCurvyGW'
+                     │         └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/'
+                     └ <function body_loop at 0x00000190FC69D480>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 37, in body_loop
+    work_link_account_obj.delete_instance()
+    │                     └ <function Model.delete_instance at 0x00000190FC4A6170>
+    └ <Model: WorkAccountWithLink>
+
+TypeError: Model.delete_instance() missing 1 required positional argument: 'self'
+2023-04-23T21:08:43.773337+0300 WARNING Підбираю інформацію для "https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/"
+2023-04-23T21:08:44.286525+0300 ERROR An error has been caught in function '_process_worker', process 'SpawnProcess-1' (12800), thread 'MainThread' (12804):
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 7077, in get
+    return clone.execute(database)[0]
+           │     │       └ None
+           │     └ <function BaseQuery.execute at 0x000001D0D514B0A0>
+           └ <peewee.ModelSelect object at 0x000001D0D5977070>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 4441, in __getitem__
+    return self.row_cache[item]
+           │    │         └ 0
+           │    └ []
+           └ <peewee.ModelObjectCursorWrapper object at 0x000001D0D5977130>
+
+IndexError: list index out of range
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 6662, in get_or_create
+    return query.get(), False
+           │     └ <function BaseModelSelect.get at 0x000001D0D5187910>
+           └ <peewee.ModelSelect object at 0x000001D0D5977190>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 7080, in get
+    raise self.model.DoesNotExist('%s instance matching query does '
+          │    │     └ <class 'database.vote_tg_bot.models.RedditLinkDoesNotExist'>
+          │    └ <Model: RedditLink>
+          └ <peewee.ModelSelect object at 0x000001D0D5977190>
+
+database.vote_tg_bot.models.RedditLinkDoesNotExist: <Model: RedditLink> instance matching query does not exist:
+SQL: SELECT "t1"."id", "t1"."link" FROM "reddit links" AS "t1" WHERE ("t1"."link" = %s) LIMIT %s OFFSET %s
+Params: ['https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/', 1, 0]
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 20, in body_loop
+    work_link_account_obj, dict_for_browser = collection_info(reddit_link=reddit_link)
+    │                                         │                           └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/'
+    │                                         └ <function collection_info at 0x000001D0D5982710>
+    └ <Model: WorkAccountWithLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 32, in collection_info
+    link_id, account_obj, work_link_account_obj = pick_up_account_to_link(reddit_link)
+                                                  │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/'
+                                                  └ <function pick_up_account_to_link at 0x000001D0D59827A0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 11, in pick_up_account_to_link
+    link_id = db_get_link_id(link_from_file)
+              │              └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/'
+              └ <function db_get_link_id at 0x000001D0D52F97E0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\get.py", line 9, in db_get_link_id
+    link_obj, _ = RedditLink.get_or_create(link=link_from_file)
+                  │          │                  └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/'
+                  │          └ <classmethod(<function Model.get_or_create at 0x000001D0D5185B40>)>
+                  └ <Model: RedditLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 6667, in get_or_create
+    with cls._meta.database.atomic():
+         │   │     │        └ <function CockroachDatabase.atomic at 0x000001D0D51BA200>
+         │   │     └ <playhouse.cockroachdb.CockroachDatabase object at 0x000001D0D522B700>
+         │   └ <peewee.Metadata object at 0x000001D0D5305930>
+         └ <Model: RedditLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\playhouse\cockroachdb.py", line 188, in __enter__
+    raise NotImplementedError(TXN_ERR_MSG)
+                              └ 'CockroachDB does not support nested transactions. You may alternatively use the @transaction context-manager/decorator, whic...
+
+NotImplementedError: CockroachDB does not support nested transactions. You may alternatively use the @transaction context-manager/decorator, which only wraps the outer-most block in transactional logic. To run a transaction with automatic retries, use the run_transaction() helper.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 196
+               │     └ 3
+               └ <function _main at 0x000001D0D1205630>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 129, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 196
+           │    └ <function BaseProcess._bootstrap at 0x000001D0D11136D0>
+           └ <SpawnProcess name='SpawnProcess-1' parent=3040 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x000001D0D1112D40>
+    └ <SpawnProcess name='SpawnProcess-1' parent=3040 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=3040 started>
+    │    │        │    └ (<concurrent.futures.process._SafeQueue object at 0x000001D0D5322590>, <multiprocessing.queues.SimpleQueue object at 0x000001...
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=3040 started>
+    │    └ <function _process_worker at 0x000001D0D53785E0>
+    └ <SpawnProcess name='SpawnProcess-1' parent=3040 started>
+
+> File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        │         │   │         │       │         └ {}
+        │         │   │         │       └ <concurrent.futures.process._CallItem object at 0x000001D0D0D7B700>
+        │         │   │         └ ('https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/', 2)
+        │         │   └ <concurrent.futures.process._CallItem object at 0x000001D0D0D7B700>
+        │         └ <function start_reddit_work at 0x000001D0D5982830>
+        └ <concurrent.futures.process._CallItem object at 0x000001D0D0D7B700>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 66, in start_reddit_work
+    condition, msg = body_loop(reddit_link, sub, id_work_link_account_obj, msg)
+                     │         │            │    │                         └ 'Your request has been processed!💫 OnlyCurvyGW'
+                     │         │            │    └ <Model: WorkAccountWithLink>
+                     │         │            └ 'OnlyCurvyGW'
+                     │         └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12wjcvx/my_puffies_feel_so_warm_but_my_pussy_is_so_wet/'
+                     └ <function body_loop at 0x000001D0D53793F0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 37, in body_loop
+    work_link_account_obj.delete_instance()
+    │                     └ <function Model.delete_instance at 0x000001D0D5186170>
+    └ <Model: WorkAccountWithLink>
+
+TypeError: Model.delete_instance() missing 1 required positional argument: 'self'
+2023-04-24T09:56:31.117130+0300 WARNING Підбираю інформацію для "https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/"
+2023-04-24T09:56:31.608405+0300 ERROR An error has been caught in function '_process_worker', process 'SpawnProcess-1' (11672), thread 'MainThread' (2140):
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 20, in body_loop
+    work_link_account_obj, dict_for_browser = collection_info(reddit_link=reddit_link)
+    │                                         │                           └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+    │                                         └ <function collection_info at 0x0000020FC4DFA710>
+    └ <Model: WorkAccountWithLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 32, in collection_info
+    link_id, account_obj, work_link_account_obj = pick_up_account_to_link(reddit_link)
+                                                  │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                                                  └ <function pick_up_account_to_link at 0x0000020FC4DFA7A0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 11, in pick_up_account_to_link
+    link_id = db_get_link_id(link_from_file)
+              │              └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+              └ <function db_get_link_id at 0x0000020FC47717E0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\get.py", line 16, in db_get_link_id
+    link_obj, created = RedditLink.select_for_update().get_or_create(link=link_from_file, atomic=True)[0]
+                        │                                                 └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                        └ <Model: RedditLink>
+
+AttributeError: type object 'RedditLink' has no attribute 'select_for_update'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 344
+               │     └ 3
+               └ <function _main at 0x0000020FC05FD6C0>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 129, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 344
+           │    └ <function BaseProcess._bootstrap at 0x0000020FC0527AC0>
+           └ <SpawnProcess name='SpawnProcess-1' parent=2540 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x0000020FC0527130>
+    └ <SpawnProcess name='SpawnProcess-1' parent=2540 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=2540 started>
+    │    │        │    └ (<concurrent.futures.process._SafeQueue object at 0x0000020FC479E920>, <multiprocessing.queues.SimpleQueue object at 0x000002...
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=2540 started>
+    │    └ <function _process_worker at 0x0000020FC47F45E0>
+    └ <SpawnProcess name='SpawnProcess-1' parent=2540 started>
+
+> File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        │         │   │         │       │         └ {}
+        │         │   │         │       └ <concurrent.futures.process._CallItem object at 0x0000020FC0511930>
+        │         │   │         └ ('https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/', 2)
+        │         │   └ <concurrent.futures.process._CallItem object at 0x0000020FC0511930>
+        │         └ <function start_reddit_work at 0x0000020FC4DFA830>
+        └ <concurrent.futures.process._CallItem object at 0x0000020FC0511930>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 66, in start_reddit_work
+    condition, msg = body_loop(reddit_link, sub, id_work_link_account_obj, msg)
+                     │         │            │    │                         └ 'Your request has been processed!💫 OnlyCurvyGW'
+                     │         │            │    └ <Model: WorkAccountWithLink>
+                     │         │            └ 'OnlyCurvyGW'
+                     │         └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                     └ <function body_loop at 0x0000020FC47F53F0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 37, in body_loop
+    work_link_account_obj.delete_instance()
+    │                     └ <function Model.delete_instance at 0x0000020FC45FE170>
+    └ <Model: WorkAccountWithLink>
+
+TypeError: Model.delete_instance() missing 1 required positional argument: 'self'
+2023-04-24T11:59:57.733783+0300 WARNING Підбираю інформацію для "https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/"
+2023-04-24T11:59:57.734845+0300 ERROR An error has been caught in function '_process_worker', process 'SpawnProcess-1' (5432), thread 'MainThread' (5688):
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 20, in body_loop
+    work_link_account_obj, dict_for_browser = collection_info(reddit_link=reddit_link)
+    │                                         │                           └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+    │                                         └ <function collection_info at 0x0000029239D1A7A0>
+    └ <Model: WorkAccountWithLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 32, in collection_info
+    link_id, account_obj, work_link_account_obj = pick_up_account_to_link(reddit_link)
+                                                  │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                                                  └ <function pick_up_account_to_link at 0x0000029239D1A830>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 11, in pick_up_account_to_link
+    link_id = db_get_link_id(link_from_file)
+              │              └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+              └ <function db_get_link_id at 0x00000292396917E0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\get.py", line 12, in db_get_link_id
+    with db.serializable_transaction():
+         └ <playhouse.cockroachdb.CockroachDatabase object at 0x00000292395313F0>
+
+AttributeError: 'CockroachDatabase' object has no attribute 'serializable_transaction'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 216
+               │     └ 3
+               └ <function _main at 0x000002923551D6C0>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 129, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 216
+           │    └ <function BaseProcess._bootstrap at 0x0000029235447AC0>
+           └ <SpawnProcess name='SpawnProcess-1' parent=14528 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x0000029235447130>
+    └ <SpawnProcess name='SpawnProcess-1' parent=14528 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=14528 started>
+    │    │        │    └ (<concurrent.futures.process._SafeQueue object at 0x00000292396BE830>, <multiprocessing.queues.SimpleQueue object at 0x000002...
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=14528 started>
+    │    └ <function _process_worker at 0x0000029239710670>
+    └ <SpawnProcess name='SpawnProcess-1' parent=14528 started>
+
+> File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        │         │   │         │       │         └ {}
+        │         │   │         │       └ <concurrent.futures.process._CallItem object at 0x0000029235431930>
+        │         │   │         └ ('https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/', 2)
+        │         │   └ <concurrent.futures.process._CallItem object at 0x0000029235431930>
+        │         └ <function start_reddit_work at 0x0000029239D1A8C0>
+        └ <concurrent.futures.process._CallItem object at 0x0000029235431930>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 66, in start_reddit_work
+    condition, msg = body_loop(reddit_link, sub, id_work_link_account_obj, msg)
+                     │         │            │    │                         └ 'Your request has been processed!💫 OnlyCurvyGW'
+                     │         │            │    └ <Model: WorkAccountWithLink>
+                     │         │            └ 'OnlyCurvyGW'
+                     │         └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                     └ <function body_loop at 0x0000029239711480>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 37, in body_loop
+    work_link_account_obj.delete_instance()
+    │                     └ <function Model.delete_instance at 0x000002923951E170>
+    └ <Model: WorkAccountWithLink>
+
+TypeError: Model.delete_instance() missing 1 required positional argument: 'self'
+2023-04-24T12:25:45.112768+0300 WARNING Підбираю інформацію для "https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/"
+2023-04-24T12:25:45.520735+0300 ERROR An error has been caught in function '_process_worker', process 'SpawnProcess-1' (2784), thread 'MainThread' (7904):
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 20, in body_loop
+    work_link_account_obj, dict_for_browser = collection_info(reddit_link=reddit_link)
+    │                                         │                           └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+    │                                         └ <function collection_info at 0x00000202E3D0A830>
+    └ <Model: WorkAccountWithLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 32, in collection_info
+    link_id, account_obj, work_link_account_obj = pick_up_account_to_link(reddit_link)
+                                                  │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                                                  └ <function pick_up_account_to_link at 0x00000202E3D0A8C0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 11, in pick_up_account_to_link
+    link_id = db_get_link_id(link_from_file)
+              │              └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+              └ <function db_get_link_id at 0x00000202E3681900>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\get.py", line 14, in db_get_link_id
+    link_obj, created = RedditLink.get_or_create_crdb(link=link_from_file, atomic=True)[0]
+                        │          │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                        │          └ <classmethod(<function BaseModel.get_or_create_crdb at 0x00000202E36813F0>)>
+                        └ <Model: RedditLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\models.py", line 10, in get_or_create_crdb
+    with cls._meta.database.atomic():
+         │   │     │        └ <function CockroachDatabase.atomic at 0x00000202E3542200>
+         │   │     └ <playhouse.cockroachdb.CockroachDatabase object at 0x00000202E3521390>
+         │   └ <peewee.Metadata object at 0x00000202E3689BD0>
+         └ <Model: RedditLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\playhouse\cockroachdb.py", line 188, in __enter__
+    raise NotImplementedError(TXN_ERR_MSG)
+                              └ 'CockroachDB does not support nested transactions. You may alternatively use the @transaction context-manager/decorator, whic...
+
+NotImplementedError: CockroachDB does not support nested transactions. You may alternatively use the @transaction context-manager/decorator, which only wraps the outer-most block in transactional logic. To run a transaction with automatic retries, use the run_transaction() helper.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 332
+               │     └ 3
+               └ <function _main at 0x00000202DF50D6C0>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 129, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 332
+           │    └ <function BaseProcess._bootstrap at 0x00000202DF437AC0>
+           └ <SpawnProcess name='SpawnProcess-1' parent=8532 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x00000202DF437130>
+    └ <SpawnProcess name='SpawnProcess-1' parent=8532 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=8532 started>
+    │    │        │    └ (<concurrent.futures.process._SafeQueue object at 0x00000202E36AE7D0>, <multiprocessing.queues.SimpleQueue object at 0x000002...
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=8532 started>
+    │    └ <function _process_worker at 0x00000202E3700700>
+    └ <SpawnProcess name='SpawnProcess-1' parent=8532 started>
+
+> File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        │         │   │         │       │         └ {}
+        │         │   │         │       └ <concurrent.futures.process._CallItem object at 0x00000202DF421930>
+        │         │   │         └ ('https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/', 1)
+        │         │   └ <concurrent.futures.process._CallItem object at 0x00000202DF421930>
+        │         └ <function start_reddit_work at 0x00000202E3D0A950>
+        └ <concurrent.futures.process._CallItem object at 0x00000202DF421930>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 66, in start_reddit_work
+    condition, msg = body_loop(reddit_link, sub, id_work_link_account_obj, msg)
+                     │         │            │    │                         └ 'Your request has been processed!💫 OnlyCurvyGW'
+                     │         │            │    └ <Model: WorkAccountWithLink>
+                     │         │            └ 'OnlyCurvyGW'
+                     │         └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                     └ <function body_loop at 0x00000202E3701510>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 37, in body_loop
+    work_link_account_obj.delete_instance()
+    │                     └ <function Model.delete_instance at 0x00000202E350E170>
+    └ <Model: WorkAccountWithLink>
+
+TypeError: Model.delete_instance() missing 1 required positional argument: 'self'
+2023-04-24T12:28:05.154235+0300 WARNING Підбираю інформацію для "https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/"
+2023-04-24T12:28:05.604648+0300 ERROR An error has been caught in function '_process_worker', process 'SpawnProcess-1' (7028), thread 'MainThread' (14716):
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 20, in body_loop
+    work_link_account_obj, dict_for_browser = collection_info(reddit_link=reddit_link)
+    │                                         │                           └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+    │                                         └ <function collection_info at 0x000001B34FC4A830>
+    └ <Model: WorkAccountWithLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 32, in collection_info
+    link_id, account_obj, work_link_account_obj = pick_up_account_to_link(reddit_link)
+                                                  │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                                                  └ <function pick_up_account_to_link at 0x000001B34FC4A8C0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 11, in pick_up_account_to_link
+    link_id = db_get_link_id(link_from_file)
+              │              └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+              └ <function db_get_link_id at 0x000001B34F5C1900>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\get.py", line 14, in db_get_link_id
+    link_obj, created = RedditLink.get_or_create_crdb(link=link_from_file)
+                        │          │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                        │          └ <classmethod(<function BaseModel.get_or_create_crdb at 0x000001B34F5C13F0>)>
+                        └ <Model: RedditLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\models.py", line 10, in get_or_create_crdb
+    with cls._meta.database.atomic():
+         │   │     │        └ <function CockroachDatabase.atomic at 0x000001B34F482200>
+         │   │     └ <playhouse.cockroachdb.CockroachDatabase object at 0x000001B34F461540>
+         │   └ <peewee.Metadata object at 0x000001B34F5C9D80>
+         └ <Model: RedditLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\playhouse\cockroachdb.py", line 188, in __enter__
+    raise NotImplementedError(TXN_ERR_MSG)
+                              └ 'CockroachDB does not support nested transactions. You may alternatively use the @transaction context-manager/decorator, whic...
+
+NotImplementedError: CockroachDB does not support nested transactions. You may alternatively use the @transaction context-manager/decorator, which only wraps the outer-most block in transactional logic. To run a transaction with automatic retries, use the run_transaction() helper.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 336
+               │     └ 3
+               └ <function _main at 0x000001B34B41D6C0>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 129, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 336
+           │    └ <function BaseProcess._bootstrap at 0x000001B34B347AC0>
+           └ <SpawnProcess name='SpawnProcess-1' parent=5256 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x000001B34B347130>
+    └ <SpawnProcess name='SpawnProcess-1' parent=5256 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=5256 started>
+    │    │        │    └ (<concurrent.futures.process._SafeQueue object at 0x000001B34F5EE9B0>, <multiprocessing.queues.SimpleQueue object at 0x000001...
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=5256 started>
+    │    └ <function _process_worker at 0x000001B34F640700>
+    └ <SpawnProcess name='SpawnProcess-1' parent=5256 started>
+
+> File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        │         │   │         │       │         └ {}
+        │         │   │         │       └ <concurrent.futures.process._CallItem object at 0x000001B34B331930>
+        │         │   │         └ ('https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/', 2)
+        │         │   └ <concurrent.futures.process._CallItem object at 0x000001B34B331930>
+        │         └ <function start_reddit_work at 0x000001B34FC4A950>
+        └ <concurrent.futures.process._CallItem object at 0x000001B34B331930>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 66, in start_reddit_work
+    condition, msg = body_loop(reddit_link, sub, id_work_link_account_obj, msg)
+                     │         │            │    │                         └ 'Your request has been processed!💫 OnlyCurvyGW'
+                     │         │            │    └ <Model: WorkAccountWithLink>
+                     │         │            └ 'OnlyCurvyGW'
+                     │         └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                     └ <function body_loop at 0x000001B34F641510>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 37, in body_loop
+    work_link_account_obj.delete_instance()
+    │                     └ <function Model.delete_instance at 0x000001B34F44E170>
+    └ <Model: WorkAccountWithLink>
+
+TypeError: Model.delete_instance() missing 1 required positional argument: 'self'
+2023-04-24T12:29:46.045634+0300 WARNING Підбираю інформацію для "https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/"
+2023-04-24T12:29:46.446925+0300 ERROR An error has been caught in function '_process_worker', process 'SpawnProcess-1' (13668), thread 'MainThread' (3732):
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 20, in body_loop
+    work_link_account_obj, dict_for_browser = collection_info(reddit_link=reddit_link)
+    │                                         │                           └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+    │                                         └ <function collection_info at 0x0000022FCEC2A830>
+    └ <Model: WorkAccountWithLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 32, in collection_info
+    link_id, account_obj, work_link_account_obj = pick_up_account_to_link(reddit_link)
+                                                  │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                                                  └ <function pick_up_account_to_link at 0x0000022FCEC2A8C0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 11, in pick_up_account_to_link
+    link_id = db_get_link_id(link_from_file)
+              │              └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+              └ <function db_get_link_id at 0x0000022FCE5A1900>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\get.py", line 14, in db_get_link_id
+    link_obj, created = RedditLink.get_or_create_crdb(link=link_from_file)
+                        │          │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                        │          └ <classmethod(<function BaseModel.get_or_create_crdb at 0x0000022FCE5A13F0>)>
+                        └ <Model: RedditLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\models.py", line 10, in get_or_create_crdb
+    with cls._meta.database.atomic():
+         │   │     │        └ <function CockroachDatabase.atomic at 0x0000022FCE462200>
+         │   │     └ <playhouse.cockroachdb.CockroachDatabase object at 0x0000022FCE43D480>
+         │   └ <peewee.Metadata object at 0x0000022FCE5A9CC0>
+         └ <Model: RedditLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\playhouse\cockroachdb.py", line 188, in __enter__
+    raise NotImplementedError(TXN_ERR_MSG)
+                              └ 'CockroachDB does not support nested transactions. You may alternatively use the @transaction context-manager/decorator, whic...
+
+NotImplementedError: CockroachDB does not support nested transactions. You may alternatively use the @transaction context-manager/decorator, which only wraps the outer-most block in transactional logic. To run a transaction with automatic retries, use the run_transaction() helper.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 340
+               │     └ 3
+               └ <function _main at 0x0000022FCA41D6C0>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 129, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 340
+           │    └ <function BaseProcess._bootstrap at 0x0000022FCA347AC0>
+           └ <SpawnProcess name='SpawnProcess-1' parent=12980 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x0000022FCA347130>
+    └ <SpawnProcess name='SpawnProcess-1' parent=12980 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=12980 started>
+    │    │        │    └ (<concurrent.futures.process._SafeQueue object at 0x0000022FCE5CE8F0>, <multiprocessing.queues.SimpleQueue object at 0x000002...
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=12980 started>
+    │    └ <function _process_worker at 0x0000022FCE620700>
+    └ <SpawnProcess name='SpawnProcess-1' parent=12980 started>
+
+> File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        │         │   │         │       │         └ {}
+        │         │   │         │       └ <concurrent.futures.process._CallItem object at 0x0000022FCA331930>
+        │         │   │         └ ('https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/', 1)
+        │         │   └ <concurrent.futures.process._CallItem object at 0x0000022FCA331930>
+        │         └ <function start_reddit_work at 0x0000022FCEC2A950>
+        └ <concurrent.futures.process._CallItem object at 0x0000022FCA331930>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 66, in start_reddit_work
+    condition, msg = body_loop(reddit_link, sub, id_work_link_account_obj, msg)
+                     │         │            │    │                         └ 'Your request has been processed!💫 OnlyCurvyGW'
+                     │         │            │    └ <Model: WorkAccountWithLink>
+                     │         │            └ 'OnlyCurvyGW'
+                     │         └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                     └ <function body_loop at 0x0000022FCE621510>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 37, in body_loop
+    work_link_account_obj.delete_instance()
+    │                     └ <function Model.delete_instance at 0x0000022FCE42E170>
+    └ <Model: WorkAccountWithLink>
+
+TypeError: Model.delete_instance() missing 1 required positional argument: 'self'
+2023-04-24T12:31:16.480532+0300 WARNING Підбираю інформацію для "https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/"
+2023-04-24T12:31:16.919802+0300 ERROR An error has been caught in function '_process_worker', process 'SpawnProcess-1' (15776), thread 'MainThread' (15144):
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 20, in body_loop
+    work_link_account_obj, dict_for_browser = collection_info(reddit_link=reddit_link)
+    │                                         │                           └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+    │                                         └ <function collection_info at 0x00000238C3D5A830>
+    └ <Model: WorkAccountWithLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 32, in collection_info
+    link_id, account_obj, work_link_account_obj = pick_up_account_to_link(reddit_link)
+                                                  │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                                                  └ <function pick_up_account_to_link at 0x00000238C3D5A8C0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 11, in pick_up_account_to_link
+    link_id = db_get_link_id(link_from_file)
+              │              └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+              └ <function db_get_link_id at 0x00000238C36D1900>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\get.py", line 14, in db_get_link_id
+    link_obj, created = RedditLink.get_or_create_crdb(link=link_from_file)
+                        │          │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                        │          └ <classmethod(<function BaseModel.get_or_create_crdb at 0x00000238C36D13F0>)>
+                        └ <Model: RedditLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\models.py", line 12, in get_or_create_crdb
+    record = cls.select_for_update().get(**kwargs)
+             │                             └ {'link': 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'}
+             └ <Model: RedditLink>
+
+AttributeError: type object 'RedditLink' has no attribute 'select_for_update'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 328
+               │     └ 3
+               └ <function _main at 0x00000238BF4DD6C0>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 129, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 328
+           │    └ <function BaseProcess._bootstrap at 0x00000238BF407AC0>
+           └ <SpawnProcess name='SpawnProcess-1' parent=14328 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x00000238BF407130>
+    └ <SpawnProcess name='SpawnProcess-1' parent=14328 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=14328 started>
+    │    │        │    └ (<concurrent.futures.process._SafeQueue object at 0x00000238C36FE920>, <multiprocessing.queues.SimpleQueue object at 0x000002...
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=14328 started>
+    │    └ <function _process_worker at 0x00000238C3750700>
+    └ <SpawnProcess name='SpawnProcess-1' parent=14328 started>
+
+> File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        │         │   │         │       │         └ {}
+        │         │   │         │       └ <concurrent.futures.process._CallItem object at 0x00000238BF3F1930>
+        │         │   │         └ ('https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/', 1)
+        │         │   └ <concurrent.futures.process._CallItem object at 0x00000238BF3F1930>
+        │         └ <function start_reddit_work at 0x00000238C3D5A950>
+        └ <concurrent.futures.process._CallItem object at 0x00000238BF3F1930>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 66, in start_reddit_work
+    condition, msg = body_loop(reddit_link, sub, id_work_link_account_obj, msg)
+                     │         │            │    │                         └ 'Your request has been processed!💫 OnlyCurvyGW'
+                     │         │            │    └ <Model: WorkAccountWithLink>
+                     │         │            └ 'OnlyCurvyGW'
+                     │         └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                     └ <function body_loop at 0x00000238C3751510>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 37, in body_loop
+    work_link_account_obj.delete_instance()
+    │                     └ <function Model.delete_instance at 0x00000238C355E170>
+    └ <Model: WorkAccountWithLink>
+
+TypeError: Model.delete_instance() missing 1 required positional argument: 'self'
+2023-04-24T12:33:59.123049+0300 WARNING Підбираю інформацію для "https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/"
+2023-04-24T12:33:59.586703+0300 ERROR An error has been caught in function '_process_worker', process 'SpawnProcess-1' (13392), thread 'MainThread' (5508):
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 20, in body_loop
+    work_link_account_obj, dict_for_browser = collection_info(reddit_link=reddit_link)
+    │                                         │                           └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+    │                                         └ <function collection_info at 0x000001F4CE6AA830>
+    └ <Model: WorkAccountWithLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 32, in collection_info
+    link_id, account_obj, work_link_account_obj = pick_up_account_to_link(reddit_link)
+                                                  │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                                                  └ <function pick_up_account_to_link at 0x000001F4CE6AA8C0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 11, in pick_up_account_to_link
+    link_id = db_get_link_id(link_from_file)
+              │              └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+              └ <function db_get_link_id at 0x000001F4CE021900>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\get.py", line 14, in db_get_link_id
+    link_obj, created = RedditLink.get_or_create_crdb(link=link_from_file)
+                        │          │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                        │          └ <classmethod(<function BaseModel.get_or_create_crdb at 0x000001F4CE0213F0>)>
+                        └ <Model: RedditLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\models.py", line 12, in get_or_create_crdb
+    record = cls.for_update().get(**kwargs)
+             │                      └ {'link': 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'}
+             └ <Model: RedditLink>
+
+AttributeError: type object 'RedditLink' has no attribute 'for_update'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 396
+               │     └ 3
+               └ <function _main at 0x000001F4C9E3D6C0>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 129, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 396
+           │    └ <function BaseProcess._bootstrap at 0x000001F4C9D67AC0>
+           └ <SpawnProcess name='SpawnProcess-1' parent=11924 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x000001F4C9D67130>
+    └ <SpawnProcess name='SpawnProcess-1' parent=11924 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=11924 started>
+    │    │        │    └ (<concurrent.futures.process._SafeQueue object at 0x000001F4CE04E890>, <multiprocessing.queues.SimpleQueue object at 0x000001...
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=11924 started>
+    │    └ <function _process_worker at 0x000001F4CE0A4700>
+    └ <SpawnProcess name='SpawnProcess-1' parent=11924 started>
+
+> File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        │         │   │         │       │         └ {}
+        │         │   │         │       └ <concurrent.futures.process._CallItem object at 0x000001F4C9D51930>
+        │         │   │         └ ('https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/', 1)
+        │         │   └ <concurrent.futures.process._CallItem object at 0x000001F4C9D51930>
+        │         └ <function start_reddit_work at 0x000001F4CE6AA950>
+        └ <concurrent.futures.process._CallItem object at 0x000001F4C9D51930>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 66, in start_reddit_work
+    condition, msg = body_loop(reddit_link, sub, id_work_link_account_obj, msg)
+                     │         │            │    │                         └ 'Your request has been processed!💫 OnlyCurvyGW'
+                     │         │            │    └ <Model: WorkAccountWithLink>
+                     │         │            └ 'OnlyCurvyGW'
+                     │         └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                     └ <function body_loop at 0x000001F4CE0A5510>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 37, in body_loop
+    work_link_account_obj.delete_instance()
+    │                     └ <function Model.delete_instance at 0x000001F4CDEAE170>
+    └ <Model: WorkAccountWithLink>
+
+TypeError: Model.delete_instance() missing 1 required positional argument: 'self'
+2023-04-24T12:35:47.500936+0300 WARNING Підбираю інформацію для "Bot work🙂https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/"
+2023-04-24T12:35:48.036152+0300 ERROR An error has been caught in function '_process_worker', process 'SpawnProcess-1' (13424), thread 'MainThread' (4612):
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 20, in body_loop
+    work_link_account_obj, dict_for_browser = collection_info(reddit_link=reddit_link)
+    │                                         │                           └ 'Bot work🙂https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+    │                                         └ <function collection_info at 0x000002054226A830>
+    └ <Model: WorkAccountWithLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 32, in collection_info
+    link_id, account_obj, work_link_account_obj = pick_up_account_to_link(reddit_link)
+                                                  │                       └ 'Bot work🙂https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                                                  └ <function pick_up_account_to_link at 0x000002054226A8C0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 11, in pick_up_account_to_link
+    link_id = db_get_link_id(link_from_file)
+              │              └ 'Bot work🙂https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+              └ <function db_get_link_id at 0x0000020541BE1900>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\get.py", line 14, in db_get_link_id
+    link_obj, created = RedditLink.get_or_create_crdb(link=link_from_file)
+                        │          │                       └ 'Bot work🙂https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                        │          └ <classmethod(<function BaseModel.get_or_create_crdb at 0x0000020541BE13F0>)>
+                        └ <Model: RedditLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\models.py", line 12, in get_or_create_crdb
+    record = cls.select().for_update().get(**kwargs)
+             │   │                           └ {'link': 'Bot work🙂https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'}
+             │   └ <classmethod(<function Model.select at 0x0000020541A6D090>)>
+             └ <Model: RedditLink>
+
+TypeError: BaseModelSelect.get() got an unexpected keyword argument 'link'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 328
+               │     └ 3
+               └ <function _main at 0x000002053D9ED6C0>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 129, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 328
+           │    └ <function BaseProcess._bootstrap at 0x000002053D917AC0>
+           └ <SpawnProcess name='SpawnProcess-1' parent=3932 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x000002053D917130>
+    └ <SpawnProcess name='SpawnProcess-1' parent=3932 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=3932 started>
+    │    │        │    └ (<concurrent.futures.process._SafeQueue object at 0x0000020541C0E8F0>, <multiprocessing.queues.SimpleQueue object at 0x000002...
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=3932 started>
+    │    └ <function _process_worker at 0x0000020541C60700>
+    └ <SpawnProcess name='SpawnProcess-1' parent=3932 started>
+
+> File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        │         │   │         │       │         └ {}
+        │         │   │         │       └ <concurrent.futures.process._CallItem object at 0x000002053D901930>
+        │         │   │         └ ('Bot work🙂https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/', 1)
+        │         │   └ <concurrent.futures.process._CallItem object at 0x000002053D901930>
+        │         └ <function start_reddit_work at 0x000002054226A950>
+        └ <concurrent.futures.process._CallItem object at 0x000002053D901930>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 66, in start_reddit_work
+    condition, msg = body_loop(reddit_link, sub, id_work_link_account_obj, msg)
+                     │         │            │    │                         └ 'Your request has been processed!💫 OnlyCurvyGW'
+                     │         │            │    └ <Model: WorkAccountWithLink>
+                     │         │            └ 'OnlyCurvyGW'
+                     │         └ 'Bot work🙂https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                     └ <function body_loop at 0x0000020541C61510>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 37, in body_loop
+    work_link_account_obj.delete_instance()
+    │                     └ <function Model.delete_instance at 0x0000020541A6E170>
+    └ <Model: WorkAccountWithLink>
+
+TypeError: Model.delete_instance() missing 1 required positional argument: 'self'
+2023-04-24T12:40:24.020191+0300 WARNING Підбираю інформацію для "https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/"
+2023-04-24T12:40:24.020191+0300 ERROR An error has been caught in function '_process_worker', process 'SpawnProcess-1' (12484), thread 'MainThread' (12464):
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 20, in body_loop
+    work_link_account_obj, dict_for_browser = collection_info(reddit_link=reddit_link)
+    │                                         │                           └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+    │                                         └ <function collection_info at 0x000002CA3B5AA830>
+    └ <Model: WorkAccountWithLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 32, in collection_info
+    link_id, account_obj, work_link_account_obj = pick_up_account_to_link(reddit_link)
+                                                  │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                                                  └ <function pick_up_account_to_link at 0x000002CA3B5AA8C0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 11, in pick_up_account_to_link
+    link_id = db_get_link_id(link_from_file)
+              │              └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+              └ <function db_get_link_id at 0x000002CA3AF21900>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\get.py", line 13, in db_get_link_id
+    with db.transacton():
+         └ <playhouse.cockroachdb.CockroachDatabase object at 0x000002CA3ADC13F0>
+
+AttributeError: 'CockroachDatabase' object has no attribute 'transacton'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 328
+               │     └ 3
+               └ <function _main at 0x000002CA36D3D6C0>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 129, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 328
+           │    └ <function BaseProcess._bootstrap at 0x000002CA36C67AC0>
+           └ <SpawnProcess name='SpawnProcess-1' parent=3688 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x000002CA36C67130>
+    └ <SpawnProcess name='SpawnProcess-1' parent=3688 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=3688 started>
+    │    │        │    └ (<concurrent.futures.process._SafeQueue object at 0x000002CA3AF4E860>, <multiprocessing.queues.SimpleQueue object at 0x000002...
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=3688 started>
+    │    └ <function _process_worker at 0x000002CA3AFA0700>
+    └ <SpawnProcess name='SpawnProcess-1' parent=3688 started>
+
+> File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        │         │   │         │       │         └ {}
+        │         │   │         │       └ <concurrent.futures.process._CallItem object at 0x000002CA36C51930>
+        │         │   │         └ ('https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/', 1)
+        │         │   └ <concurrent.futures.process._CallItem object at 0x000002CA36C51930>
+        │         └ <function start_reddit_work at 0x000002CA3B5AA950>
+        └ <concurrent.futures.process._CallItem object at 0x000002CA36C51930>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 66, in start_reddit_work
+    condition, msg = body_loop(reddit_link, sub, id_work_link_account_obj, msg)
+                     │         │            │    │                         └ 'Your request has been processed!💫 OnlyCurvyGW'
+                     │         │            │    └ <Model: WorkAccountWithLink>
+                     │         │            └ 'OnlyCurvyGW'
+                     │         └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                     └ <function body_loop at 0x000002CA3AFA1510>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 37, in body_loop
+    work_link_account_obj.delete_instance()
+    │                     └ <function Model.delete_instance at 0x000002CA3ADAE170>
+    └ <Model: WorkAccountWithLink>
+
+TypeError: Model.delete_instance() missing 1 required positional argument: 'self'
+2023-04-24T12:41:15.792404+0300 WARNING Підбираю інформацію для "https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/"
+2023-04-24T12:41:16.411459+0300 ERROR An error has been caught in function '_process_worker', process 'SpawnProcess-1' (16328), thread 'MainThread' (15024):
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 20, in body_loop
+    work_link_account_obj, dict_for_browser = collection_info(reddit_link=reddit_link)
+    │                                         │                           └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+    │                                         └ <function collection_info at 0x0000012A2E9DA830>
+    └ <Model: WorkAccountWithLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 32, in collection_info
+    link_id, account_obj, work_link_account_obj = pick_up_account_to_link(reddit_link)
+                                                  │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                                                  └ <function pick_up_account_to_link at 0x0000012A2E9DA8C0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 11, in pick_up_account_to_link
+    link_id = db_get_link_id(link_from_file)
+              │              └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+              └ <function db_get_link_id at 0x0000012A2E351900>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\get.py", line 14, in db_get_link_id
+    link_obj, created = RedditLink.get_or_create_crdb(link=link_from_file)
+                        │          │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                        │          └ <classmethod(<function BaseModel.get_or_create_crdb at 0x0000012A2E3513F0>)>
+                        └ <Model: RedditLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\models.py", line 12, in get_or_create_crdb
+    record = cls.select().where(**kwargs).for_update().get()
+             │   │                └ {'link': 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'}
+             │   └ <classmethod(<function Model.select at 0x0000012A2E1DD090>)>
+             └ <Model: RedditLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 733, in inner
+    method(clone, *args, **kwargs)
+    │      │       │       └ {'link': 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'}
+    │      │       └ ()
+    │      └ <peewee.ModelSelect object at 0x0000012A2E9C77F0>
+    └ <function Query.where at 0x0000012A2E1A3880>
+
+TypeError: Query.where() got an unexpected keyword argument 'link'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 324
+               │     └ 3
+               └ <function _main at 0x0000012A2A24D6C0>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 129, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 324
+           │    └ <function BaseProcess._bootstrap at 0x0000012A2A177AC0>
+           └ <SpawnProcess name='SpawnProcess-1' parent=11220 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x0000012A2A177130>
+    └ <SpawnProcess name='SpawnProcess-1' parent=11220 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=11220 started>
+    │    │        │    └ (<concurrent.futures.process._SafeQueue object at 0x0000012A2E37E9B0>, <multiprocessing.queues.SimpleQueue object at 0x000001...
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=11220 started>
+    │    └ <function _process_worker at 0x0000012A2E3D0700>
+    └ <SpawnProcess name='SpawnProcess-1' parent=11220 started>
+
+> File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        │         │   │         │       │         └ {}
+        │         │   │         │       └ <concurrent.futures.process._CallItem object at 0x0000012A2A161930>
+        │         │   │         └ ('https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/', 1)
+        │         │   └ <concurrent.futures.process._CallItem object at 0x0000012A2A161930>
+        │         └ <function start_reddit_work at 0x0000012A2E9DA950>
+        └ <concurrent.futures.process._CallItem object at 0x0000012A2A161930>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 66, in start_reddit_work
+    condition, msg = body_loop(reddit_link, sub, id_work_link_account_obj, msg)
+                     │         │            │    │                         └ 'Your request has been processed!💫 OnlyCurvyGW'
+                     │         │            │    └ <Model: WorkAccountWithLink>
+                     │         │            └ 'OnlyCurvyGW'
+                     │         └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                     └ <function body_loop at 0x0000012A2E3D1510>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 37, in body_loop
+    work_link_account_obj.delete_instance()
+    │                     └ <function Model.delete_instance at 0x0000012A2E1DE170>
+    └ <Model: WorkAccountWithLink>
+
+TypeError: Model.delete_instance() missing 1 required positional argument: 'self'
+2023-04-24T12:47:22.735162+0300 WARNING Підбираю інформацію для "https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/"
+2023-04-24T12:47:23.186109+0300 ERROR An error has been caught in function '_process_worker', process 'SpawnProcess-1' (9912), thread 'MainThread' (16052):
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 20, in body_loop
+    work_link_account_obj, dict_for_browser = collection_info(reddit_link=reddit_link)
+    │                                         │                           └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+    │                                         └ <function collection_info at 0x000002052C62A830>
+    └ <Model: WorkAccountWithLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 32, in collection_info
+    link_id, account_obj, work_link_account_obj = pick_up_account_to_link(reddit_link)
+                                                  │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                                                  └ <function pick_up_account_to_link at 0x000002052C62A8C0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 11, in pick_up_account_to_link
+    link_id = db_get_link_id(link_from_file)
+              │              └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+              └ <function db_get_link_id at 0x000002052BFA1900>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\get.py", line 15, in db_get_link_id
+    link_obj, created = RedditLink.get_or_create_crdb(**dict_pass)
+                        │          │                    └ {<CharField: RedditLink.link>: 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'}
+                        │          └ <classmethod(<function BaseModel.get_or_create_crdb at 0x000002052BFA13F0>)>
+                        └ <Model: RedditLink>
+
+TypeError: keywords must be strings
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 316
+               │     └ 3
+               └ <function _main at 0x0000020527D9D6C0>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 129, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 316
+           │    └ <function BaseProcess._bootstrap at 0x0000020527CC7AC0>
+           └ <SpawnProcess name='SpawnProcess-1' parent=980 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x0000020527CC7130>
+    └ <SpawnProcess name='SpawnProcess-1' parent=980 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=980 started>
+    │    │        │    └ (<concurrent.futures.process._SafeQueue object at 0x000002052BFCE860>, <multiprocessing.queues.SimpleQueue object at 0x000002...
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=980 started>
+    │    └ <function _process_worker at 0x000002052C020700>
+    └ <SpawnProcess name='SpawnProcess-1' parent=980 started>
+
+> File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        │         │   │         │       │         └ {}
+        │         │   │         │       └ <concurrent.futures.process._CallItem object at 0x0000020527CB1930>
+        │         │   │         └ ('https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/', 1)
+        │         │   └ <concurrent.futures.process._CallItem object at 0x0000020527CB1930>
+        │         └ <function start_reddit_work at 0x000002052C62A950>
+        └ <concurrent.futures.process._CallItem object at 0x0000020527CB1930>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 66, in start_reddit_work
+    condition, msg = body_loop(reddit_link, sub, id_work_link_account_obj, msg)
+                     │         │            │    │                         └ 'Your request has been processed!💫 OnlyCurvyGW'
+                     │         │            │    └ <Model: WorkAccountWithLink>
+                     │         │            └ 'OnlyCurvyGW'
+                     │         └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                     └ <function body_loop at 0x000002052C021510>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 37, in body_loop
+    work_link_account_obj.delete_instance()
+    │                     └ <function Model.delete_instance at 0x000002052BE2E170>
+    └ <Model: WorkAccountWithLink>
+
+TypeError: Model.delete_instance() missing 1 required positional argument: 'self'
+2023-04-24T12:49:33.982871+0300 WARNING Підбираю інформацію для "https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/"
+2023-04-24T12:49:34.445245+0300 ERROR An error has been caught in function '_process_worker', process 'SpawnProcess-1' (14196), thread 'MainThread' (15592):
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 20, in body_loop
+    work_link_account_obj, dict_for_browser = collection_info(reddit_link=reddit_link)
+    │                                         │                           └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+    │                                         └ <function collection_info at 0x0000024AF094A830>
+    └ <Model: WorkAccountWithLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 32, in collection_info
+    link_id, account_obj, work_link_account_obj = pick_up_account_to_link(reddit_link)
+                                                  │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                                                  └ <function pick_up_account_to_link at 0x0000024AF094A8C0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 11, in pick_up_account_to_link
+    link_id = db_get_link_id(link_from_file)
+              │              └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+              └ <function db_get_link_id at 0x0000024AF02C1900>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\get.py", line 15, in db_get_link_id
+    link_obj, created = RedditLink.get_or_create_crdb(**dict_pass)
+                        │          │                    └ {'link': 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'}
+                        │          └ <classmethod(<function BaseModel.get_or_create_crdb at 0x0000024AF02C13F0>)>
+                        └ <Model: RedditLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\models.py", line 12, in get_or_create_crdb
+    record = cls.select().where(**kwargs).for_update().get()
+             │   │                └ {'link': 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'}
+             │   └ <classmethod(<function Model.select at 0x0000024AF014D090>)>
+             └ <Model: RedditLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\venv\lib\site-packages\peewee.py", line 733, in inner
+    method(clone, *args, **kwargs)
+    │      │       │       └ {'link': 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'}
+    │      │       └ ()
+    │      └ <peewee.ModelSelect object at 0x0000024AF09377C0>
+    └ <function Query.where at 0x0000024AF0113880>
+
+TypeError: Query.where() got an unexpected keyword argument 'link'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 316
+               │     └ 3
+               └ <function _main at 0x0000024AEC11D6C0>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 129, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 316
+           │    └ <function BaseProcess._bootstrap at 0x0000024AEC047AC0>
+           └ <SpawnProcess name='SpawnProcess-1' parent=2844 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x0000024AEC047130>
+    └ <SpawnProcess name='SpawnProcess-1' parent=2844 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=2844 started>
+    │    │        │    └ (<concurrent.futures.process._SafeQueue object at 0x0000024AF02EE950>, <multiprocessing.queues.SimpleQueue object at 0x000002...
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=2844 started>
+    │    └ <function _process_worker at 0x0000024AF0344700>
+    └ <SpawnProcess name='SpawnProcess-1' parent=2844 started>
+
+> File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        │         │   │         │       │         └ {}
+        │         │   │         │       └ <concurrent.futures.process._CallItem object at 0x0000024AEC031930>
+        │         │   │         └ ('https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/', 1)
+        │         │   └ <concurrent.futures.process._CallItem object at 0x0000024AEC031930>
+        │         └ <function start_reddit_work at 0x0000024AF094A950>
+        └ <concurrent.futures.process._CallItem object at 0x0000024AEC031930>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 66, in start_reddit_work
+    condition, msg = body_loop(reddit_link, sub, id_work_link_account_obj, msg)
+                     │         │            │    │                         └ 'Your request has been processed!💫 OnlyCurvyGW'
+                     │         │            │    └ <Model: WorkAccountWithLink>
+                     │         │            └ 'OnlyCurvyGW'
+                     │         └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                     └ <function body_loop at 0x0000024AF0345510>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 37, in body_loop
+    work_link_account_obj.delete_instance()
+    │                     └ <function Model.delete_instance at 0x0000024AF014E170>
+    └ <Model: WorkAccountWithLink>
+
+TypeError: Model.delete_instance() missing 1 required positional argument: 'self'
+2023-04-24T13:01:20.364794+0300 WARNING Підбираю інформацію для "https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/"
+2023-04-24T13:01:21.458127+0300 ERROR An error has been caught in function '_process_worker', process 'SpawnProcess-1' (13492), thread 'MainThread' (12136):
+Traceback (most recent call last):
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 20, in body_loop
+    work_link_account_obj, dict_for_browser = collection_info(reddit_link=reddit_link)
+    │                                         │                           └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+    │                                         └ <function collection_info at 0x000001F4F645A710>
+    └ <Model: WorkAccountWithLink>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 32, in collection_info
+    link_id, account_obj, work_link_account_obj = pick_up_account_to_link(reddit_link)
+                                                  │                       └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                                                  └ <function pick_up_account_to_link at 0x000001F4F645A7A0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\Uprove_TG_Bot\PickUpAccountsForLink\match_account.py", line 17, in pick_up_account_to_link
+    outcome_created, created_obj_work_link_account_obj = db_exist_record_link_account(
+                                                         └ <function db_exist_record_link_account at 0x000001F4F5DD11B0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\database\vote_tg_bot\actions_in_db.py", line 12, in db_exist_record_link_account
+    obj, created = WorkAccountWithLink.get_or_create_crdb(cookie=cookie_id, link=link_id)
+                   │                                             │               └ <RedditLink: 1>
+                   │                                             └ 29
+                   └ <Model: WorkAccountWithLink>
+
+AttributeError: type object 'WorkAccountWithLink' has no attribute 'get_or_create_crdb'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 344
+               │     └ 3
+               └ <function _main at 0x000001F4F1BCD6C0>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\spawn.py", line 129, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 344
+           │    └ <function BaseProcess._bootstrap at 0x000001F4F1AD7AC0>
+           └ <SpawnProcess name='SpawnProcess-1' parent=12900 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x000001F4F1AD7130>
+    └ <SpawnProcess name='SpawnProcess-1' parent=12900 started>
+
+  File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=12900 started>
+    │    │        │    └ (<concurrent.futures.process._SafeQueue object at 0x000001F4F5DFE950>, <multiprocessing.queues.SimpleQueue object at 0x000001...
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=12900 started>
+    │    └ <function _process_worker at 0x000001F4F5E505E0>
+    └ <SpawnProcess name='SpawnProcess-1' parent=12900 started>
+
+> File "C:\Users\King\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        │         │   │         │       │         └ {}
+        │         │   │         │       └ <concurrent.futures.process._CallItem object at 0x000001F4F1AC1930>
+        │         │   │         └ ('https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/', 1)
+        │         │   └ <concurrent.futures.process._CallItem object at 0x000001F4F1AC1930>
+        │         └ <function start_reddit_work at 0x000001F4F645A830>
+        └ <concurrent.futures.process._CallItem object at 0x000001F4F1AC1930>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 66, in start_reddit_work
+    condition, msg = body_loop(reddit_link, sub, id_work_link_account_obj, msg)
+                     │         │            │    │                         └ 'Your request has been processed!💫 OnlyCurvyGW'
+                     │         │            │    └ <Model: WorkAccountWithLink>
+                     │         │            └ 'OnlyCurvyGW'
+                     │         └ 'https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/'
+                     └ <function body_loop at 0x000001F4F5E513F0>
+
+  File "C:\Users\King\PycharmProjects\Reddit_comment_apruv\main_Reddit.py", line 37, in body_loop
+    work_link_account_obj.delete_instance()
+    │                     └ <function Model.delete_instance at 0x000001F4F5C5E170>
+    └ <Model: WorkAccountWithLink>
+
+TypeError: Model.delete_instance() missing 1 required positional argument: 'self'
+2023-04-24T13:04:03.689339+0300 WARNING Підбираю інформацію для "https://www.reddit.com/r/OnlyCurvyGW/comments/12x4z6c/your_dick_really_needs_my_boobs/"
+2023-04-24T13:04:23.102594+0300 ERROR Not enough bots🫠 to enter the number of votes you specified OnlyCurvyGW
+2023-04-24T13:04:23.103545+0300 INFO Program execute: 19.41420578956604
